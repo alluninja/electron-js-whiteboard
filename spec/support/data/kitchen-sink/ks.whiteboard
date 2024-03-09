@@ -1,0 +1,32 @@
+[slide]
+title=Terminal and editor
+editor=testdir/test1.js,test2.html
+terminal=testdir/
+[slide]
+title=Second Slide With Markdown
+markdown:"""
+# Dabat decurrit memini
+
+## Digitorum lilia
+
+Lorem markdownum cornua!
+
+    system = rgbDirectoryLpi(shiftMirrorBurn, systemImpact);
+
+Fervida **Minos** tractoque adeundi et tenuere seque nostro.  Agri forte
+petitos est cum tangit virtute furtiva, prensis et luce fovi. *Auras oscula*
+suberant **et illuc**.
+
+## Mariti Pittheia et capellas dum
+
+An intumuit, humo mihi cessit pugnat, et leto. Sed ab est pro!
+
+1. Placidi bracchia praebebat maesta iacentia datus et
+2. Ut naribus et cura cape infregit tauros
+3. Idomeneus rabiem attonuit fata appellantque munera silex
+
+Est [gentis mutor](http://www.bellumet.net/fuit.aspx), ubi est sospite ardor
+heros priora parce solo, non ducar feres, deae flector dotatissima. Defecisse
+plurimus priora et velis hastam laevaque quid.
+"""
+

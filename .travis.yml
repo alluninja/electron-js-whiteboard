@@ -1,0 +1,53 @@
+language: node_js
+
+node_js:
+  - '8'
+
+matrix:
+  allow_failures:
+    - os: osx
+  include:
+    - os: linux
+      env:
+        - TEST_TARGET=test-v-headless
+        - BUILD_TARGET=build-linux
+    - os: osx
+      env:
+        - BUILD_TARGET=build-macos
+        - TEST_TARGET=test-v
+
+addons:
+  apt:
+    packages:
+      - xvfb
+      - xorriso
+      - icnsutils
+      - graphicsmagick
+      - xz-utils
+      - rpm
+      - bsdtar
+
+env:
+  global:
+    - ELECTRON_ENABLE_LOGGING=1
+    - USE_SYSTEM_XORRISO=true
+    - TESTS_EXTRA_DELAY=true
+    - TESTS_SKIP_UNRELIABLE=true
+#  - BUILD_TARGET=build-linux
+#  - TEST_TARGET=test-v-headless
+
+before_script:
+  - npm run rebuild
+
+cache:
+  directories:
+    - node_modules
+    - $HOME/.cache/electron
+    - $HOME/.cache/electron-builder
+    - $HOME/Library/Caches/electron
+    - $HOME/Library/Caches/electron-builder
+
+script:
+  - npm run $TEST_TARGET
+  - make $BUILD_TARGET
+

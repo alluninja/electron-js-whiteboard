@@ -1,0 +1,126 @@
+{
+  "name": "electron-js-whiteboard",
+  "productName": "Whiteboard",
+  "version": "0.0.48",
+  "description": "Whiteboard - a slide-based activity presentation system",
+  "bin": {
+    "whiteboard": "./bin/whiteboard"
+  },
+  "main": "lib/main.js",
+  "scripts": {
+    "rebuild": "electron-rebuild",
+    "dist": "npm run rebuild && build --publish onTagOrDraft",
+    "start": "electron lib/main.js",
+    "test-v-headless": "xvfb-run node ./runtests.js --verbose",
+    "test-v": "node ./runtests.js --verbose --skip-e2e",
+    "test-headless": "xvfb-run node ./runtests.js",
+    "test-e2e": "xvfb-run node ./runtests.js",
+    "test": "node ./runtests.js --skip-e2e"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alluninja/electron-js-whiteboard.git"
+  },
+  "keywords": [
+    "slideshow",
+    "tutorial",
+    "editor",
+    "document",
+    "ide",
+    "webinar",
+    "code",
+    "demonstration",
+    "presentation",
+    "teaching",
+    "learning",
+    "education",
+    "electron",
+    "desktop",
+    "live",
+    "browser",
+    "terminal",
+    "text"
+  ],
+  "engines": {
+    "node": ">=8.0"
+  },
+  "license": "GPL-3.0",
+  "build": {
+    "appId": "org.michaelb.Whiteboard",
+    "files": [
+      "build/",
+      "node_modules/",
+      "static/",
+      "lib/",
+      "LICENSE",
+      "package.json"
+    ],
+    "mac": {
+      "category": "public.app-category.education",
+      "target": [
+        "dmg",
+        "zip"
+      ]
+    },
+    "win": {
+      "target": [
+        "nsis",
+        "zip"
+      ]
+    },
+    "linux": {
+      "synopsis": "Create activity-based presentations that combine coding and demonstrations.",
+      "category": "Office",
+      "target": [
+        "AppImage",
+        "rpm",
+        "deb",
+        "pacman",
+        "tar.gz"
+      ]
+    }
+  },
+  "dependencies": {
+    "ace-builds": "1.2.6",
+    "electron-ipc-stream": "0.2.0",
+    "electron-store": "1.2.0",
+    "elmoed-electron-modular-editor": "0.0.36",
+    "glob": "7.0.3",
+    "javascript-detect-element-resize": "0.5.3",
+    "lodash": "4.17.4",
+    "marked": "0.3.6",
+    "medium-editor": "5.23.2",
+    "mime-types": "2.1.15",
+    "mousetrap": "1.6.1",
+    "node-pty": "0.7.0",
+    "node-uuid": "1.4.7",
+    "riot": "3.4.3",
+    "schemaconf": "0.1.1",
+    "sortablejs": "1.5.1",
+    "taglex": "0.1.10",
+    "tmp": "0.0.31",
+    "to-markdown": "3.1.1",
+    "walk-sync": "0.3.2",
+    "xel": "0.0.54",
+    "xterm": "2.4.0"
+  },
+  "devDependencies": {
+    "electron": "1.7.5",
+    "electron-builder": "19.27.3",
+    "electron-icon-maker": "0.0.3",
+    "electron-rebuild": "1.6.0",
+    "eslint": "4.5.0",
+    "eslint-config-airbnb-base": "11.3.2",
+    "eslint-plugin-import": "2.7.0",
+    "jasmine": "2.4.1",
+    "jasmine-spec-reporter": "4.0.0",
+    "magicmock": "1.4.0",
+    "mockery": "2.0.0",
+    "nyc": "11.2.1",
+    "spectron": "3.7.2"
+  },
+  "optionalDependencies": {
+    "7zip-bin-win": "2.1.0",
+    "7zip-bin-mac": "1.0.1"
+  }
+}

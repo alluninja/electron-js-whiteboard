@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <title>Whiteboard</title>
+    <meta name="description" content="Free desktop application that lets you create activity-based presentations that combine coding and demonstrations." />
+    <meta name="HandheldFriendly" content="True"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.3/css/bulma.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--
+        <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    -->
+    <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="navbar-brand">
+    <a class="navbar-item whiteboard-logo" href="http://whiteboard.michaelb.org/">
+      <img src="images/icon_256.png" alt="Whiteboard logo" width="28" height="28">
+      Whiteboard
+    </a>
+
+    <a class="navbar-item is-hidden-desktop" href="index.html">
+        <i class="fa fa-lg fa-home"></i>
+    </a>
+    <a class="navbar-item is-hidden-desktop" href="tutorial.html">
+        <i class="fa fa-lg fa-question"></i>
+    </a>
+    <a class="navbar-item is-hidden-desktop" href="downloads.html">
+        <i class="fa fa-lg fa-download"></i>
+    </a>
+  </div>
+
+  <div class="navbar-menu">
+    <div class="navbar-start">
+      <a class="navbar-item" href="index.html">
+        About
+      </a>
+      <a class="navbar-item" href="tutorial.html">
+        Getting started
+      </a>
+      <a class="navbar-item" href="downloads.html">
+        Downloads
+      </a>
+    </div>
+
+    <div class="navbar-end">
+      <a class="navbar-item" href="https://github.com/michaelpb/whiteboard/" target="_blank">
+        <span class="icon" style="color: #333;">
+          <i class="fa fa-lg fa-github"></i>
+        </span>
+      </a>
+
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+
+<br />
+<br />
+<br />
+<div class="container">
+    <div class="content">
+        <h1 class="title">Getting started</h1>
+        <p>
+            <a class="button is-primary" href="downloads.html"><i class="fa fa-download"></i> &nbsp; Download</a>
+            <a class="button is-link" target="_blank" href="https://github.com/michaelpb/whiteboard-tutorial-processing-data-with-nodejs">Sample deck: a self-guided tutorial on processing text files with Node.js</a>
+        </p>
+
+
+        <h3>Two ways of creating decks</h3>
+
+        <p>Each presentation is called a <em>deck</em>. You have two
+        routes for creating decks:</p>
+        <ol>
+            <li>GUI: You can create new decks entirely with the GUI, by
+            clicking on the <strong>NEW DECK</strong> button on first
+            screen. After you choose a location and filename to save, you
+            are good to go with your first slide-show.</li>
+
+            <li>Text: by editing the <code>.whiteboard</code> plain-text
+            file-format. If you are more at home in a text editor, this
+            might be the fastest. <a href="#fileformat">Click here to learn
+            how to do this.</a></li>
+        </ol>
+
+        <hr />
+        <h3>Using Whiteboard</h3>
+
+        <p><strong>Menus:</strong> Whiteboard is entirely controlled by the
+        application menu and the context menu (using <em>Right click</em> or
+        <em>Ctrl + Click</em>). The context menu is different depending on
+        where you click, so if you right-click on the Editor, for example, you
+        will have options to save the current file open in the editor.</p>
+
+        <p><strong>Shortcuts:</strong> Most menu actions have also a shortcut
+        key assigned. Like the context menu, the available shortcuts change
+        depending on which pane you are using. For example: for the editor
+        <code>Ctrl+S</code> will save the open file, and for the browser,
+        <code>Ctrl+R</code> will hard-refresh. To see the list of all available
+        shortcuts, hit F1.</p>
+
+        <p><strong>Slide editing:</strong> Using the menu, or <code>F2</code>,
+        you can create, edit, delete, and re-arrange slides. Create a slide for
+        each activity you want to demo, and add an editor, terminal, markdown
+        text, or browser as appropriate for each slide. When you are done, be
+        sure to save from the <code>File</code> menu.</p>
+
+        <h3>Presenting with Whiteboard</h4>
+
+        <p><strong>Saving and organizing presentations:</strong> A reasonable
+        way to organize your presentations is to have each slide or group of
+        slides have it's own directory, with relevant files about each topic
+        within it. Then, you can set up editors, browsers, terminals, and
+        explanatory text as needed for each slide to go through a series of
+        activities.  Whiteboard's simple plain-text format makes it easy to
+        create and share presentations via git or an archive file. Sharing
+        ahead of time even allows participants to follow along. <a
+        target="_blank" href="https://github.com/michaelpb/whiteboard-tutorial-processing-data-with-nodejs">See
+        this self-guided tutorial as an example.</a></p>
+
+        <p><strong>Presentation Mode:</strong> Unlike other slide show
+        applications, Whiteboard was designed with improvisation as a primary
+        focus. Thus, it does not separate a GUI or Editing mode from it's
+        presentation mode. Presentation Mode causes Whiteboard to go
+        full-screen, but still offers the same keyboard shortcuts and context
+        menu as before.  This makes it easy to have a nice presentation even
+        without going to full-screen, and to change or edit slides in the
+        middle of a presentation.</p>
+
+        <p><strong>Directing focus during presentations:</strong> During a
+        presentation, using the menu or <code>F10</code> you can maximize an
+        individual pane.  This state is saved, so you can leave certain panes
+        maximized to hide other content. A useful technique is  to leave your
+        slide titles all maximized, which gives time to give a verbal
+        introduction to the topic without the distraction of code or browser on
+        the screen, and then unmaximize it when you are ready to plunge in.</p>
+
+        <p id="fileformat"></p>
+        <hr />
+        <h3>The Whiteboard file format</h3>
+        <p>The decks are stored in a plaintext format that resembles INI files,
+        with the extension `.whiteboard`.  The format is simple and convenient
+        enough to edit by hand.
+
+        <div class="columns">
+            <div class="column">
+                <h5>Accepted values in slides</h5>
+                <ul>
+                    <li><strong>title</strong> - a bold title at the top of the
+                    slide</li>
+
+                    <li><strong>browser</strong> - consists of a web-browser
+                    that can be pointed to a remote HTTP address (starting with
+                    <code>http://</code> or <code>https://</code>) or local
+                    HTML file (starting with <code>file://</code>).</li>
+
+                    <li><strong>editor</strong> - can edit multiple code files
+                    in tabs with syntax highlighting, consisting of comma (or
+                    new-line) separated of relative or absolute file paths.
+                    Wild cards / glob syntax is accepted.</li>
+
+                    <li><strong>terminal</strong> - bash terminal, specify a
+                    starting directory</li>
+
+                    <li><strong>markdown</strong> - multi-line element to
+                    contain arbitrary explanatory text</li>
+
+                    <li><em>maximize</em> - the value should be one of the
+                    above pane types, causing that pane be maximized at the
+                    start (useful while introducing a topic to avoid having
+                    unrelated or distracting text until the time comes)</li>
+
+                    <li><em>layout</em> - layout of the slide, the value should
+                    be one "horizontal", "vertical", or "grid"</li>
+                </ul>
+            </div>
+            <div class="column">
+                <h5>Syntax</h5>
+                <p>
+                The Whiteboard format consists of lines of <code>[slide]</code>
+                followed by key/value pairs in the format of <code>key = value</code>,
+                each on a new line. For multi-line values, you can use the syntax
+                <code>key : ''' (... multiple lines of text ...) '''</code>. The only
+                requirement is that the final <code>'''</code> is alone on its own
+                line.
+                </p>
+                <h5>Example</h5>
+
+
+<pre>
+[slide]
+title=POST request demonstration
+terminal=./POST_python/
+editor=./POST_python/*.py
+
+[slide]
+title=Demo of final app
+browser = ./POST_challenge/index.html
+markdown : '''
+# Recreate the browser
+- Try to recreate this app using Flask
+- Hint: You'll have to use a POST endpoint
+'''
+</pre>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+</div>
+
+
+<footer class="footer">
+    <div class="container">
+        <div class="columns">
+
+            <div class="column">
+                <h3 class="has-text-weight-bold">Whiteboard</h3>
+                <ul>
+                    <li>
+                        <a href="index.html">About</a>
+                    </li>
+
+                    <li>
+                        <a href="downloads.html">Downloads</a>
+                    </li>
+
+                    <li>
+                        <a href="tutorial.html">Getting started</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="column">
+                <h3 class="has-text-weight-bold">Contribute</h3>
+                <ul>
+                    <li>
+                        <a href="https://github.com/michaelpb/whiteboard/issues/">Issues</a>
+                    </li>
+
+                    <li>
+                        <a href="http://github.com/michaelpb/whiteboard">Source</a>
+                    </li>
+
+                    <li>
+                        <a href="https://github.com/michaelpb/whiteboard/blob/master/CONDUCT.md">Code of conduct</a>
+                    </li>
+
+                    <li>
+                        <a href="https://github.com/michaelpb/whiteboard/blob/master/DEVELOPMENT.md">Contribution guide</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="column">
+                <h3 class="has-text-weight-bold">Powered by</h3>
+                <ul>
+                    <li>
+                        <a target="_blank" href="https://electron.atom.io/">Electron</a>
+                    </li>
+
+                    <!--
+                    <li>
+                        <a target="_blank" href="http://riotjs.com/">Riot.js</a>
+                    </li>
+                    -->
+
+                    <li>
+                        <a target="_blank" title="Backgrounds were generated with Colorful Background"  href="http://www.webcore-it.com/colorful-background/">Bulma</a>
+                    </li>
+
+                    <li>
+                        <a target="_blank" href="https://xel-toolkit.org/">Xel</a>
+                    </li>
+
+                    <li>
+                        <a target="_blank" title="Site &amp; layout thanks to Bulma"  href="http://bulma.io/">Bulma</a>
+                    </li>
+
+                    <li>
+                        <a target="_blank" href="https://github.com/michaelpb/whiteboard/blob/master/package.json#L69">More...</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="column">
+                <h3 class="has-text-weight-bold">Share</h3>
+                <ul>
+                    <li>
+
+                        <a class="button"
+                            title="Tweet about whiteboard!"
+                            data-social-network="Twitter"
+                            data-social-action="tweet"
+                            data-social-target="http://whiteboard.michaelb.org/"
+                            target="_blank"
+                            href="https://twitter.com/intent/tweet?text=Whiteboard: Slideshow for coding demonstrations&hashtags=whiteboard&url=http://whiteboard.michaelb.org&via=mbgamedev">
+                            <span class="icon">
+                                <i class="fa fa-twitter"></i>
+                            </span>
+                            &nbsp; Tweet
+                        </a>
+
+                    </li>
+
+                    <li>
+                        <iframe src="https://ghbtns.com/github-btn.html?user=michaelpb&repo=whiteboard&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="content has-text-centered black-links">
+            <p>
+                © <a href="http://michaelb.org/">Michael Bethencourt</a> 2019
+                <a href="https://www.gnu.org/licenses/gpl-3.0.en.html">GPL 3.0</a>
+                - <a href="contact.html">Contact</a>
+            </p>
+        </div>
+    </div>
+</footer>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-105834983-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+</body>
+</html>
+

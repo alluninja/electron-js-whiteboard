@@ -1,0 +1,41 @@
+html {
+    overflow: hidden;
+}
+
+body {
+    height: 100vh;
+    overflow: hidden;
+}
+
+
+/*
+    Give a nice styled background -- needs important since Xel tries to
+    overwrite it
+body,
+.pane-fullscreen {
+    background: url(../img/texture-1457346.jpg) center center fixed !important;
+    background-size: cover !important;
+}
+body,
+.pane-fullscreen {
+    background:
+        linear-gradient(45deg, hsla(177, 100%, 82%, 1) 0%, hsla(177, 100%, 82%, 0) 70%),
+        linear-gradient(135deg, hsla(319, 98%, 87%, 1) 10%, hsla(319, 98%, 87%, 0) 80%),
+        linear-gradient(225deg, hsla(77, 93%, 80%, 1) 10%, hsla(77, 93%, 80%, 0) 80%),
+        linear-gradient(315deg, hsla(13, 98%, 80%, 1) 100%, hsla(13, 98%, 80%, 0) 70%)
+        !important;
+}
+*/
+
+
+:not(input):not(textarea),
+:not(input):not(textarea)::after,
+:not(input):not(textarea)::before {
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: default;
+}
+input, button, textarea, :focus {
+    outline: none; /* You should add some other style for :focus to help UX/a11y*/
+}
+
